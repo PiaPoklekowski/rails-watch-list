@@ -10,7 +10,7 @@
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
       <ul class="navbar-nav me-auto">
           <li class="nav-item active">
-            <a class="nav-link" href="/lists">My lists</a>
+            <a class="nav-link" href="/">My lists</a>
           </li>
           <li class="nav-item">
             <a class="nav-link" href="/lists/new">New list</a>
@@ -22,7 +22,10 @@
   </div>
 </div>
 
-<div class="banner" style="background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url(https://images.unsplash.com/photo-1542204165-65bf26472b9b?crop=entropy&cs=tinysrgb&fm=jpg&ixlib=rb-1.2.1&q=80&raw_url=true&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1374);">
+<% if @list.photo.attached? %>
+<div class="banner" style="background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url('<%= cl_image_path @list.photo.key, crop: :fill %>');">
+<% end %>
+
   <div class="container">
     <h1><strong><%= @list.name %></strong></h1>
   </div>
